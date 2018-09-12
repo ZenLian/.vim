@@ -39,7 +39,7 @@ set ffs=unix
 set number
 
 " Add a bit extra margin to the left
-set foldcolumn=1
+"set foldcolumn=1
 
 """"""""""
 " Middle
@@ -62,7 +62,7 @@ set laststatus=2
 set ruler
 
 " Height of the command bar
-"set cmdheight=2
+set cmdheight=2
 " Show partial command in the cmd bar
 set showcmd
 
