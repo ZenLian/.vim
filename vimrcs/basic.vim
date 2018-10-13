@@ -1,13 +1,13 @@
 """""""""""""""""""""""""""""""""""""""""""""""""
-" => General
+" => 一般配置
 """""""""""""""""""""""""""""""""""""""""""""""""
-"
+" 不兼容模式
 set nocompatible
 
-" enable filetype plugins
+" 开启文件类型检测
 filetype plugin indent on
 
-"
+" mapleader
 let mapleader=","
 
 " 文件在vim外更改时,自动读入文件变化
@@ -20,78 +20,82 @@ set nobackup
 set nowb
 set noswapfile
 
-" Reload the vimrc file
+" 重载vimrc配置
 map <leader>sv :source ~/.vimrc<cr>
 
 """""""""""""""""""""""""""""""""""""""
-" => User Interface
+" => UI配置
 """""""""""""""""""""""""""""""""""""""
-" Language, Encoding and File formats
+" 语言,编码和文件系统
 let $LANG='en_US'
 set langmenu=en
 set encoding=utf8
 set ffs=unix
 
+" 关闭警告声
+set belloff=all
+
 """"""""""
 " -> Left
 """"""""""
-" Show line numbers
+" 显示行号
 set number
 
-" Add a bit extra margin to the left
+" 左侧留一列空白
 "set foldcolumn=1
 
 """"""""""
 " Middle
 """"""""""
-" Set 7 lines to the cursor when moving vertically
+" 移动时光标离上下边界的距离
 set so=7
 
-" Show current line
+" 高亮当前行
 set cursorline
 
 """"""""""
 " Bottom
 """"""""""
-" Always show the status line
+" 显示状态栏
 set laststatus=2
-" Format the status line
+" 自定义状态栏格式
 "set statusline=
 
-" Always show current position
+" 显示坐标(行列号)
 set ruler
 
-" Height of the command bar
-set cmdheight=2
-" Show partial command in the cmd bar
+" 命令栏高度
+set cmdheight=1
+" 普通模式下显示命令
 set showcmd
 
-" Turn on the wild menu
+" 按tab时命令栏显示补全列表
 set wildmenu
-" Ignore compiled files
+" 忽略编译文件
 set wildignore=*.o,*~,*.pyc
 
-" No annoying sound on errors
-set belloff=all
-"""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""
-" => Searching related
+" => 搜索
 """""""""""""""""""""""""""""""""""""""""""""""""
+" 大小写不敏感
 set ignorecase
+" 有大写时切换为大小写敏感
 set smartcase
+" 高亮搜索结果
 set hlsearch
+" 实时显示搜索结果
 set incsearch
-"set lazyredraw 
+"set lazyredraw
 "set magic
 
-" Disable highlight when <leader><cr> is pressed
+" ,<space>关闭高亮
 map <silent><leader><space> :noh<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""
-" => Colors
+" => 颜色
 """""""""""""""""""""""""""""""""""""""""""""""""
-" Enable syntax highlighting
+" 语法高亮
 syntax enable
 syntax on
 
@@ -106,7 +110,7 @@ endif
 set background=dark
 
 """""""""""""""""""""""""""""""""""""""""""""""""
-" => Text, tab and indent related
+" => 文本和缩进
 """""""""""""""""""""""""""""""""""""""""""""""""
 " Use spaces instead of tabs
 set expandtab
@@ -127,19 +131,19 @@ set si "Smart indent
 set wrap "Wrap lines
 
 """""""""""""""""""""""""""""""""""""""""""""""""
-" =>tabs, windows and buffers
+" => tabs, windows and buffers
 """""""""""""""""""""""""""""""""""""""""""""""""
-" Smart way to move between windows
+" 使用Ctrl+h/j/k/l在窗口间移动
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
 
-" Always show tabline
+" 始终显示tab栏
 set showtabline=2
 
-" Useful mappings for managing tabs
+" tab页快捷键
 map <leader>tn :tabnew<cr>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
@@ -157,12 +161,13 @@ nnoremap ]t :tabnext<cr>
 " A buffer becomes hidden when it is abandoned
 set hidden
 
-" Close the current buffer
+" 操作buffer快捷键
+" 关闭当前buffer
 map <leader>bd :bd<cr>
-" Next and Previous buffers
+" 下一个/上一个buffer
 nnoremap ]b :bnext!<cr>
 nnoremap [b :bprevious!<cr>
-" Switch buffers
+" 切换至指定buffer
 nnoremap <leader>1 :b1<CR>
 nnoremap <leader>2 :b2<CR>
 nnoremap <leader>3 :b3<CR>
@@ -175,25 +180,25 @@ nnoremap <leader>9 :b9<CR>
 nnoremap <leader>0 :b10<CR>
 
 
-" Return to last edit position when opening files (You want this!)
+" 打开文件时自动跳转至上次编辑处
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
-" Quit when no edit buffer exits
+" 无可编辑buffer时自动退出
 autocmd BufEnter * if 0 == len(filter(range(1, winnr('$')), 'empty(getbufvar(winbufnr(v:val), "&bt"))')) | qa! | endif
 """""""""""""""""""""""""""""""""""""""""""""""""
-" => Key mappings
+" => 快捷键
 """""""""""""""""""""""""""""""""""""""""""""""""
-" fast saving
+" 快速保存
 nmap <leader>w :w!<cr>
 
-" Move a line of text using ALT+[jk]
+" 使用ALT+[jk]上下移动当前行
 nmap <M-j> mz:m+<cr>`z
 nmap <M-k> mz:m-2<cr>`z
 vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
 vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
 
 """""""""""""""""""""""""""""""""""""""""""""""""
-" => Bash-like key mappings
+" => Bash风格快捷键
 """""""""""""""""""""""""""""""""""""""""""""""""
 " go to the beginning/end
 cnoremap <C-A> <Home>
@@ -219,15 +224,20 @@ cnoremap <C-D> <Del>
 "cnoremap <C-O> <C-D>
 
 """""""""""""""""""""""""""""""""""""""""""""""""
-" => Spell checking
+" => 拼写检查
 """""""""""""""""""""""""""""""""""""""""""""""""
-" toggle spell checking
+" ,ss开关拼写检查
 map <leader>ss :setlocal spell!<cr>
 
-" Shortcuts using <leader>
-"map <leader>sn ]s
-"map <leader>sp [s
-"map <leader>sa zg
-"map <leader>s? z=
+" 下/上一处拼写错误
+map <leader>sn ]s
+map <leader>sp [s
+" 添加至词典 
+map <leader>sa zg
+" 显示拼写建议
+map <leader>s? z=
 
-"noremap <leader>qq
+"""""""""""""""""""""""""""""""""""""""""""""""""
+" => 自定义函数
+"""""""""""""""""""""""""""""""""""""""""""""""""
+" TODO: 删除行末空格
