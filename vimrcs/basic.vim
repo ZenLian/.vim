@@ -8,14 +8,14 @@ set nocompatible
 filetype plugin indent on
 
 "
-let mapleader=";"
+let mapleader=","
 
-" Auto detect changes outside of Vim
+" 文件在vim外更改时,自动读入文件变化
 set autoread
-" Auto change directory to current buffer
+" 自动切换工作目录
 set autochdir
 
-" Turn backup off
+" 关闭备份
 set nobackup
 set nowb
 set noswapfile
@@ -158,7 +158,7 @@ nnoremap ]t :tabnext<cr>
 set hidden
 
 " Close the current buffer
-map <leader>bb :bd<cr>
+map <leader>bd :bd<cr>
 " Next and Previous buffers
 nnoremap ]b :bnext!<cr>
 nnoremap [b :bprevious!<cr>
