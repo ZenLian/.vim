@@ -112,10 +112,16 @@ set background=dark
 """""""""""""""""""""""""""""""""""""""""""""""""
 " => 文本和缩进
 """""""""""""""""""""""""""""""""""""""""""""""""
+
+" 退格键
+set backspace=eol,start,indent
+" 方向键跨行
+"set whichwrap+=h,l,<,>
+
 " Use spaces instead of tabs
 set expandtab
 
-" Be smart when using tabs ;)
+" Be smart when using tabs
 set smarttab
 
 " 1 tab == 4 spaces
@@ -143,11 +149,11 @@ map <C-l> <C-W>l
 " 始终显示tab栏
 set showtabline=2
 
-" tab页快捷键
+" 操作tab页快捷键
 map <leader>tn :tabnew<cr>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove 
+map <leader>tm :tabmove
 nnoremap [t :tabprevious<cr>
 nnoremap ]t :tabnext<cr>
 " Let 'tl' toggle between this and the last accessed tab
@@ -155,7 +161,7 @@ nnoremap ]t :tabnext<cr>
 "nmap <Leader>tl :exe "tabn ".g:lasttab<CR>
 "au TabLeave * let g:lasttab = tabpagenr()
 
-" Specify the behavior when switching between buffers 
+" Specify the behavior when switching between buffers
 "set switchbuf=useopen,usetab,newtab
 
 " A buffer becomes hidden when it is abandoned
@@ -180,11 +186,6 @@ nnoremap <leader>9 :b9<CR>
 nnoremap <leader>0 :b10<CR>
 
 
-" 打开文件时自动跳转至上次编辑处
-au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-
-" 无可编辑buffer时自动退出
-autocmd BufEnter * if 0 == len(filter(range(1, winnr('$')), 'empty(getbufvar(winbufnr(v:val), "&bt"))')) | qa! | endif
 """""""""""""""""""""""""""""""""""""""""""""""""
 " => 快捷键
 """""""""""""""""""""""""""""""""""""""""""""""""
@@ -204,7 +205,7 @@ vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
 cnoremap <C-A> <Home>
 cnoremap <C-E> <End>
 " go back/forward one word
-"cnoremap <M-B> 
+"cnoremap <M-B>
 "cnoremap <M-F>
 " go back/forward one character
 cnoremap <C-B> <Left>
@@ -213,7 +214,7 @@ inoremap <C-B> <Left>
 inoremap <C-F> <Right>
 " cut till the beginning/end
 "cnoremap <C-U>
-"cnoremap <C-K> 
+"cnoremap <C-K>
 cnoremap <C-H> <Backspace>
 cnoremap <C-D> <Del>
 
@@ -232,12 +233,19 @@ map <leader>ss :setlocal spell!<cr>
 " 下/上一处拼写错误
 map <leader>sn ]s
 map <leader>sp [s
-" 添加至词典 
+" 添加至词典
 map <leader>sa zg
 " 显示拼写建议
 map <leader>s? z=
 
 """""""""""""""""""""""""""""""""""""""""""""""""
-" => 自定义函数
+" => 自动执行命令
 """""""""""""""""""""""""""""""""""""""""""""""""
-" TODO: 删除行末空格
+" 打开文件时自动跳转至上次编辑处
+autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
+" 无可编辑buffer时自动退出
+autocmd BufEnter * if 0 == len(filter(range(1, winnr('$')), 'empty(getbufvar(winbufnr(v:val), "&bt"))')) | qa! | endif
+
+" 保存时自动删除行末空格
+autocmd BufWritePre *.c,*.cc,*.cpp,*.java,*.js,*.py,*.sh,*.vim silent! %s/\s\+$//e
