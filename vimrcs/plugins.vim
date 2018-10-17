@@ -15,6 +15,7 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-scripts/taglist.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'airblade/vim-gitgutter'
 
 call vundle#end()
 filetype plugin indent on
@@ -49,4 +50,9 @@ let Tlist_Exit_OnlyWindow=1
 let Tlist_Use_Right_Window=1
 let Tlist_GainFocus_On_ToggleOpen=1
 map <F3> :TlistToggle<cr>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""
+" => gitgutter
+"""""""""""""""""""""""""""""""""""""""""""""""""
+set updatetime=100
 
