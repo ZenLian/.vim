@@ -198,6 +198,15 @@ nmap <M-k> mz:m-2<cr>`z
 vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
 vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
 
+" z+数字查看man手册页(待实现)
+source $VIMRUNTIME/ftplugin/man.vim
+"nmap m1 :Man 1 =expand("")
+"nmap m2 :Man 2 =expand("")
+
+" ctags
+map <F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q -f .tags .<cr><cr>
+set tags=./.tags;,,tags;
+
 """""""""""""""""""""""""""""""""""""""""""""""""
 " => Bash风格快捷键
 """""""""""""""""""""""""""""""""""""""""""""""""

@@ -60,9 +60,10 @@ $ git submodule update bundle/Vundle.vim
 - [vim-airline](https://github.com/vim-airline/vim-airline): 强大的vim状态栏插件
 - [auto-pairs](https://github.com/jiangmiao/auto-pairs): 括号智能匹配
 - [NERDtree](https://github.com/scrooloose/nerdtree): 文件资源浏览插件
-    - `F2`开关插件，插件显示在左侧
+    - `F2`开关插件，目录树显示在左侧
 - [taglist](https://github.com/vim-scripts/taglist.vim): 代码结构浏览插件
-    - `F3`开关插件，插件显示在右侧
+    - `F3`开关插件，taglist显示在右侧
+    - `F12`在当前目录下生成ctags文件，后缀为.tags
 - [ctrlp.vim](https://github.com/ctrlpvim/ctrlp.vim.git): 搜索一切(Fuzzy file, buffer, mru and tag... finder)
 
 ## 快捷键
