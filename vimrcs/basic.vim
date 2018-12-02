@@ -1,7 +1,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""
 " => 一般配置
 """""""""""""""""""""""""""""""""""""""""""""""""
-" 不兼容模式
+" 不兼容vi
 set nocompatible
 
 " 开启文件类型检测
@@ -28,15 +28,25 @@ map <leader>sv :source ~/.vimrc<cr>
 """""""""""""""""""""""""""""""""""""""
 " 语言,编码和文件系统
 let $LANG='en_US'
-set langmenu=en
 set encoding=utf8
+set langmenu=en
+source $VIMRUNTIME/delmenu.vim
+source $VIMRUNTIME/menu.vim
 set ffs=unix
 
 " 关闭警告声
 set belloff=all
 
+" 关闭菜单栏、工具栏、滚动条
+set guioptions-=m
+set guioptions-=T
+set guioptions-=r
+set guioptions-=R
+set guioptions-=l
+set guioptions-=L
+
 """"""""""
-" -> Left
+" Left
 """"""""""
 " 显示行号
 set number
@@ -101,11 +111,10 @@ syntax on
 
 if has('gui_running')
     set t_Co=256
+    colorscheme desert
 else
     set t_Co=16
 endif
-
-"colorscheme desert
 
 set background=dark
 
@@ -198,7 +207,7 @@ nmap <M-k> mz:m-2<cr>`z
 vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
 vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
 
-" z+数字查看man手册页(待实现)
+" z+数字查看man手册页(TODO)
 source $VIMRUNTIME/ftplugin/man.vim
 "nmap m1 :Man 1 =expand("")
 "nmap m2 :Man 2 =expand("")

@@ -9,13 +9,14 @@
     - **filetypes.vim**:根据文件类型的自动配置(TODO)
     - **plugins.vim**:插件配置
 - **bundle/**:vim插件目录
-- **install.sh**:生成用户vimrc文件的shell脚本(TODO)
+- **install.sh**:生成用户vimrc文件的shell脚本
+- **install_win.sh**:windows下安装脚本
 
 ## 安装方法
 
 ### 下载
 
-下载配置文件至`~/.vim`中
+下载配置文件至`~/.vim/`中
 
 ``` bash
 $ git clone https://github.com/ZenLian/.vim.git ~/.vim
@@ -23,25 +24,15 @@ $ git clone https://github.com/ZenLian/.vim.git ~/.vim
 
 ### 生成vimrc文件
 
-通过shell脚本生成vimrc文件
-
-``` bash
-$ ~/.vim/install.sh
-```
+通过shell脚本`install.sh`生成vimrc文件. windows下运行`install_win.sh`.
 
 ### 安装插件
 
-vundle通过`git submodule`安装，其他插件通过vundle安装，也可直接`git submodule`安装
+有两种安装方法:
 
-``` bash
-$ cd ~/.vim
-$ git submodule init
-$ git submodule update
-```
+#### 1. vundle通过`git submodule`安装，其他插件通过vundle安装
 
-### vundle安装插件
-
-上一步可只安装vundle
+- 通过`git submodule`安装vundle
 
 ``` bash
 $ cd ~/.vim
@@ -49,10 +40,18 @@ $ git submodule init
 $ git submodule update bundle/Vundle.vim
 ```
 
-然后进入vim，通过vundle安装其他插件，并生成相应help文件。这一步对于生成help文件是必须的。
+- 然后进入vim，通过vundle安装其他插件，同时生成相应Helptags。
 
-``` 
+```
 :VundleInstall
+```
+
+#### 2. 所有插件都通过`git submodule`安装
+
+``` bash
+$ cd ~/.vim
+$ git submodule init
+$ git submodule update
 ```
 
 ## 插件
@@ -60,17 +59,37 @@ $ git submodule update bundle/Vundle.vim
 - [vim-airline](https://github.com/vim-airline/vim-airline): 强大的vim状态栏插件
 - [auto-pairs](https://github.com/jiangmiao/auto-pairs): 括号智能匹配
 - [NERDtree](https://github.com/scrooloose/nerdtree): 文件资源浏览插件
-    - `F2`开关插件，目录树显示在左侧
 - [taglist](https://github.com/vim-scripts/taglist.vim): 代码结构浏览插件
-    - `F3`开关插件，taglist显示在右侧
-    - `F12`在当前目录下生成ctags文件，后缀为.tags
 - [ctrlp.vim](https://github.com/ctrlpvim/ctrlp.vim.git): 搜索一切(Fuzzy file, buffer, mru and tag... finder)
+- [vim-gitgutter](https://github.com/airblade/vim-gitgutter.git): git插件
 
 ## 快捷键
 
-`<leader>`键映射为`,`
+`<leader>`映射为`,`
 
-```
-let mapleader=","
-```
+### 普通快捷键
+
+- 快速保存(`<leader>w`)
+- 关闭搜索高亮(`<leader><space>`)
+- 关闭当前buffer(`<leader>bd`)
+- 上下切换buffer(`[b`/`]b`)
+- 切换至指定buffer(`<leader>[0-9]`)
+- 切换窗口(`<Ctrl>+h/j/k/l>`)
+
+
+### 插件相关快捷键
+
+[NERDtree](https://github.com/scrooloose/nerdtree):
+
+- `F2`: 打开/关闭目录树
+
+[taglist](https://github.com/vim-scripts/taglist.vim):
+
+- `F3`: 打开/关闭taglist
+- `F12`: 在当前目录下生成ctags文件，后缀为.tags
+
+[vim-gitgutter](https://github.com/airblade/vim-gitgutter.git):
+
+- `[c`/`]c`: 跳至下一处/上一处改动
+
 
