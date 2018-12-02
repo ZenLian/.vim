@@ -213,8 +213,12 @@ source $VIMRUNTIME/ftplugin/man.vim
 "nmap m2 :Man 2 =expand("")
 
 " ctags
-map <F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q -f .tags .<cr><cr>
+nmap <F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q -f .tags .<cr><cr>
 set tags=./.tags;,,tags;
+
+" 插入系统时间
+nnoremap <C-T> a<C-R>=strftime("%Y-%m-%d %H:%M")<CR><esc>
+inoremap <C-T> <C-R>=strftime("%Y-%m-%d %H:%M")<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""
 " => Bash风格快捷键
