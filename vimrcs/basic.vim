@@ -118,6 +118,11 @@ endif
 
 set background=dark
 
+" 自动补全窗口配色
+highlight Pmenu      ctermbg=darkgrey  ctermfg=white guibg=darkgrey  guifg=white
+highlight PmenuSel   ctermbg=lightgrey ctermfg=black guibg=lightgrey guifg=black
+highlight PmenuSbar  ctermbg=darkgrey  guibg=darkgrey
+highlight PmenuThumb ctermbg=lightgrey guibg=lightgrey
 """""""""""""""""""""""""""""""""""""""""""""""""
 " => 文本和缩进
 """""""""""""""""""""""""""""""""""""""""""""""""
@@ -270,4 +275,4 @@ autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "norm
 autocmd BufEnter * if 0 == len(filter(range(1, winnr('$')), 'empty(getbufvar(winbufnr(v:val), "&bt"))')) | qa! | endif
 
 " 保存时自动删除行末空格
-autocmd BufWritePre *.c,*.cc,*.cpp,*.java,*.js,*.py,*.sh,*.vim silent! %s/\s\+$//e
+autocmd BufWritePre * silent! %s/\s\+$//e

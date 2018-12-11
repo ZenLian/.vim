@@ -14,6 +14,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-scripts/taglist.vim'
+Plugin 'vim-scripts/OmniCppComplete'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'airblade/vim-gitgutter'
 
@@ -56,3 +57,15 @@ map <F3> :TlistToggle<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""
 set updatetime=100
 
+"""""""""""""""""""""""""""""""""""""""""""""""""
+" => OmniCppComplete
+"""""""""""""""""""""""""""""""""""""""""""""""""
+set completeopt=menuone,menu
+let OmniCpp_MayCompleteDot=1   ".后自动补全
+let OmniCpp_MayCompleteArrow=1 "->后自动补全
+let OmniCpp_MayCompleteScope=1 "::后自动补全
+let OmniCpp_NamespaceSearch=1
+let OmniCpp_GlobalScopeSearch=1
+let OmniCpp_ShowAccess=1
+let OmniCpp_ShowPrototypeInAbbr=1 "显示函数参数列表
+let OmniCpp_DefaultNamespaces=["std"]

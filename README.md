@@ -62,6 +62,7 @@ $ git submodule update
 - [taglist](https://github.com/vim-scripts/taglist.vim): 代码结构浏览插件
 - [ctrlp.vim](https://github.com/ctrlpvim/ctrlp.vim.git): 搜索一切(Fuzzy file, buffer, mru and tag... finder)
 - [vim-gitgutter](https://github.com/airblade/vim-gitgutter.git): git插件
+- [OmniCppComplete](https://github.com/vim-scripts/OmniCppComplete.git): C/C++全能补全
 
 ## 快捷键
 
@@ -92,4 +93,6 @@ $ git submodule update
 
 - `[c`/`]c`: 跳至下一处/上一处改动
 
+[OmniCppComplete](https://github.com/vim-scripts/OmniCppComplete.git):
 
+- `<Ctrl-X><Ctrl-O>`: 展开自动补全窗口
