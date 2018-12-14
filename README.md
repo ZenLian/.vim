@@ -60,6 +60,7 @@ $ git submodule update
 - [auto-pairs](https://github.com/jiangmiao/auto-pairs): 括号智能匹配
 - [NERDtree](https://github.com/scrooloose/nerdtree): 文件资源浏览插件
 - [taglist](https://github.com/vim-scripts/taglist.vim): 代码结构浏览插件
+- [cscope](https://github.com/brookhong/cscope.vim.git): tag跳转
 - [ctrlp.vim](https://github.com/ctrlpvim/ctrlp.vim.git): 搜索一切(Fuzzy file, buffer, mru and tag... finder)
 - [vim-gitgutter](https://github.com/airblade/vim-gitgutter.git): git插件
 - [OmniCppComplete](https://github.com/vim-scripts/OmniCppComplete.git): C/C++全能补全
@@ -89,6 +90,12 @@ $ git submodule update
 - `F3`: 打开/关闭taglist
 - `F12`: 在当前目录下生成ctags文件，后缀为.tags
 
+[cscope](https://github.com/brookhong/cscope.vim.git): tag跳转
+
+- `g[`: 查看函数调用
+- `<leader>fa`: 查找tag, 同命令`:cs find`, 见`:help cscope-find`
+- `<leader>l`: 打开/关闭location list
+
 [vim-gitgutter](https://github.com/airblade/vim-gitgutter.git):
 
 - `[c`/`]c`: 跳至下一处/上一处改动
@@ -96,3 +103,4 @@ $ git submodule update
 [OmniCppComplete](https://github.com/vim-scripts/OmniCppComplete.git):
 
 - `<Ctrl-X><Ctrl-O>`: 展开自动补全窗口
+

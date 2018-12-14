@@ -222,7 +222,7 @@ nmap <F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q -f .tags .<cr><cr>
 set tags=./.tags;,,tags;
 
 " 插入系统时间
-nnoremap <C-T> a<C-R>=strftime("%Y-%m-%d %H:%M")<CR><esc>
+"nnoremap <leader>tt a<C-R>=strftime("%Y-%m-%d %H:%M")<CR><esc>
 inoremap <C-T> <C-R>=strftime("%Y-%m-%d %H:%M")<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""
@@ -258,12 +258,12 @@ cnoremap <C-D> <Del>
 map <leader>ss :setlocal spell!<cr>
 
 " 下/上一处拼写错误
-map <leader>sn ]s
-map <leader>sp [s
+"map <leader>sn ]s
+"map <leader>sp [s
 " 添加至词典
-map <leader>sa zg
+"map <leader>sa zg
 " 显示拼写建议
-map <leader>s? z=
+"map <leader>s? z=
 
 """""""""""""""""""""""""""""""""""""""""""""""""
 " => 自动执行命令
