@@ -1,8 +1,29 @@
 #!/bin/bash
 
-echo 'source ~/.vim/vimrcs/plugins.vim
-"source ~/.vim/vimrcs/filetypes.vim
-source ~/.vim/vimrcs/basic.vim
-' > ~/.vimrc
+case `uname -s` in
+"Linux")
+    platform="linux"
+    ;;
+*)
+    platform="windows"
+    ;;
+esac
+echo "Installing on ${platform}..."
 
-echo "Installed successfully!"
+basepath=$(cd `dirname $0`; pwd)
+
+cd ~
+if [ $platform == "linux" ]
+then
+    ln -sfn $basepath .vim
+else
+    ln -sfn $basepath vimfiles
+fi
+ln -sfn $basepath'/vimrcs/vimrc' .vimrc
+
+if [ $? == 0 ]
+then
+    echo "Installed successfully!"
+else
+    echo "Failed to install!"
+fi
