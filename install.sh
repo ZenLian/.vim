@@ -15,9 +15,9 @@ basepath=$(cd `dirname $0`; pwd)
 cd ~
 if [ $platform == "linux" ]
 then
-    ln -sfn $basepath .vim
+    ln -sf $basepath .vim
 else
-    ln -sfn $basepath vimfiles
+    ln -sf $basepath vimfiles
 fi
 ln -sfn $basepath'/vimrcs/vimrc' .vimrc
 

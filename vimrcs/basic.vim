@@ -123,6 +123,9 @@ highlight Pmenu      ctermbg=darkgrey  ctermfg=white guibg=darkgrey  guifg=white
 highlight PmenuSel   ctermbg=lightgrey ctermfg=black guibg=lightgrey guifg=black
 highlight PmenuSbar  ctermbg=darkgrey  guibg=darkgrey
 highlight PmenuThumb ctermbg=lightgrey guibg=lightgrey
+
+" 当前行配色
+highlight Cursorline cterm=NONE ctermbg=8 guibg=Grey40
 """""""""""""""""""""""""""""""""""""""""""""""""
 " => 文本和缩进
 """""""""""""""""""""""""""""""""""""""""""""""""
