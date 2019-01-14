@@ -109,27 +109,27 @@ map <silent><leader><space> :noh<cr>
 syntax enable
 syntax on
 
-if has('gui_running')
-    set t_Co=256
-    colorscheme desert
-else
-    set t_Co=16
-endif
-
 set background=dark
 
-" 自动补全窗口配色
-highlight Pmenu      ctermbg=darkgrey  ctermfg=white guibg=darkgrey  guifg=white
-highlight PmenuSel   ctermbg=lightgrey ctermfg=black guibg=lightgrey guifg=black
-highlight PmenuSbar  ctermbg=darkgrey  guibg=darkgrey
-highlight PmenuThumb ctermbg=lightgrey guibg=lightgrey
+if filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"))
+    color solarized
+else
+    " 自动补全窗口配色
+    highlight Pmenu      ctermbg=darkgrey  ctermfg=white guibg=darkgrey  guifg=white
+    highlight PmenuSel   ctermbg=lightgrey ctermfg=black guibg=lightgrey guifg=black
+    highlight PmenuSbar  ctermbg=darkgrey  guibg=darkgrey
+    highlight PmenuThumb ctermbg=lightgrey guibg=lightgrey
 
-" 当前行配色
-highlight Cursorline cterm=NONE ctermbg=8 guibg=Grey40
+    " 当前行配色
+    highlight Cursorline cterm=NONE ctermbg=8 guibg=Grey40
+endif
+
+highlight clear Signcolumn " 左侧的标记列与背景一致
+highlight clear LineNr     " 行号与背景一致
 """""""""""""""""""""""""""""""""""""""""""""""""
 " => 文本和缩进
 """""""""""""""""""""""""""""""""""""""""""""""""
-
+tags
 " 退格键
 set backspace=eol,start,indent
 " 方向键跨行

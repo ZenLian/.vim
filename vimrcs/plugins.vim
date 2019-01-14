@@ -9,6 +9,7 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 
+Plugin 'altercation/vim-colors-solarized'
 Plugin 'vim-airline/vim-airline'
 "Plugin 'vim-airline/vim-airline-themes'
 Plugin 'jiangmiao/auto-pairs'
@@ -22,6 +23,14 @@ Plugin 'airblade/vim-gitgutter'
 call vundle#end()
 filetype plugin indent on
 let mapleader=","
+
+"""""""""""""""""""""""""""""""""""""""""""""""""
+" => color scheme
+"""""""""""""""""""""""""""""""""""""""""""""""""
+let g:solarized_termcolors=256
+let g:solarized_termtrans=1
+let g:solarized_contrast="normal"
+let g:solarized_visibility="normal"
 
 """""""""""""""""""""""""""""""""""""""""""""""""
 " => vim-airline
