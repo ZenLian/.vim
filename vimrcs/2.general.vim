@@ -14,7 +14,7 @@ set noswapfile
 
 " 开启persistent undo
 if has('persistent_undo')
-    set undodir=~/.vim/temp/vimundo
+    set undodir=~/.vim/tmp/vimundo
     set undofile                " So is persistent undo ...
     set undolevels=1000         " Maximum number of changes that can be undone
     set undoreload=10000        " Maximum number lines to save for undo on a buffer reload
