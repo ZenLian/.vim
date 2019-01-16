@@ -1,5 +1,5 @@
 " Vundle Begin {
-    
+
     " TODO: 参考spf13-vim添加一个UnBundle命令
 
     " Basics {

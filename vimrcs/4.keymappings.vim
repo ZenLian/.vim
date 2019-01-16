@@ -1,3 +1,4 @@
+let mapleader=g:my_leader
 " 重载vimrc配置
 map <leader>sv :source ~/.vimrc<cr>
 

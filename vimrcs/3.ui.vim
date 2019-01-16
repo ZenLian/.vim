@@ -2,6 +2,10 @@ set background=dark  " 深色背景
 
 " 主题
 if count(g:my_bundle_groups, 'ui') && filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"))
+    let g:solarized_termcolors=256
+    let g:solarized_termtrans=1
+    let g:solarized_contrast="normal"
+    let g:solarized_visibility="normal"
     color solarized
 else
     color default
@@ -45,7 +49,7 @@ highlight clear LineNr     " 行号与背景一致
 
 
 set so=5          " 滚动时光标离上下边界的距离
-set sj=3          " 一次滚动的行数
+"set sj=3          " 一次滚动的行数
 set cursorline    " 高亮当前行
 
 " 状态栏

@@ -6,8 +6,10 @@ case `uname -s` in
     ;;
 *)
     platform="windows"
+    echo "Sorry, platform not supported yet!"
     ;;
 esac
+
 echo "Installing on ${platform}..."
 
 basepath=$(cd `dirname $0`; pwd)

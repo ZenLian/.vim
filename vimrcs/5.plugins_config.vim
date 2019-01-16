@@ -22,7 +22,7 @@
             " i: Find files #including this file
                 nnoremap <leader>fi :call cscope#find('i', expand('<cword>'))<CR>
         " }
-    
+
         " NerdTree {
             let g:NERDTreeWinPos="left"
             let g:NERDTreeShowHidden=0
@@ -32,7 +32,7 @@
             map <leader>nb :NERDTreeFromBookMark<cr>
             map <leader>nf :NERDTreeFind<cr>
         " }
-    
+
         " OmniCppComplete {
             set completeopt=menuone,menu
             let OmniCpp_MayCompleteDot=1   ".后自动补全
@@ -44,7 +44,7 @@
             let OmniCpp_ShowPrototypeInAbbr=1 "显示函数参数列表
             let OmniCpp_DefaultNamespaces=["std"]
         " }
-    
+
         " TagList {
             let Tlist_Show_One_File=1
             let Tlist_Exit_OnlyWindow=1
@@ -72,10 +72,7 @@
             "let g:airline_solarized_bg = 'dark'
         " }
         " solarized {
-            let g:solarized_termcolors=256
-            let g:solarized_termtrans=1
-            let g:solarized_contrast="normal"
-            let g:solarized_visibility="normal"
+        " 在ui.vim中配置
         " }
     endif
 " }
