@@ -1,3 +1,4 @@
+" vim: set foldmethod=marker foldmarker={,} foldlevel=0 :
 " Vundle Begin {
 
     " TODO: 参考spf13-vim添加一个UnBundle命令

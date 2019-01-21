@@ -1,3 +1,4 @@
+" vim: set foldmethod=marker foldmarker={,} foldlevel=0 :
 set background=dark  " 深色背景
 
 " 主题

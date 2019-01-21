@@ -1,3 +1,4 @@
+" vim: set foldmethod=marker foldmarker={,} foldlevel=0 :
 let mapleader=g:my_leader
 " 重载vimrc配置
 map <leader>sv :source ~/.vimrc<cr>
@@ -7,6 +8,12 @@ nmap <leader>w :w!<cr>
 
 " ,<space>关闭高亮
 map <silent><leader><space> :noh<cr>
+
+" Y从当前位置复制到行尾, 与D, C一致
+nnoremap Y y$
+" 屏幕左右移动
+nnoremap zh zH
+nnoremap zl zL
 
 " 使用ALT+[jk]上下移动当前行
 nmap <M-j> mz:m+<cr>`z

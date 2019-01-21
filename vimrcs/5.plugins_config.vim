@@ -1,3 +1,4 @@
+" vim: set foldmethod=marker foldmarker={,} foldlevel=0 :
 " General {
     if count(g:my_bundle_groups, 'general')
 

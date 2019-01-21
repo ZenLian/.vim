@@ -1,3 +1,4 @@
+" vim: set foldmethod=marker foldmarker={,} foldlevel=0 :
 filetype plugin indent on " 开启文件类型检测
 syntax enable
 syntax on
