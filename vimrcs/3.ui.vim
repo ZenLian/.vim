@@ -19,9 +19,8 @@ else
     highlight Cursorline cterm=NONE ctermbg=8 guibg=Grey40
 endif
 
-" 语言,编码和文件系统
+" 语言和文件系统
 let $LANG='en_US'
-set encoding=utf8
 set langmenu=en
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
@@ -76,19 +75,24 @@ set cursorline    " 高亮当前行
     endif
 
 " 搜索栏
-" 大小写不敏感
-set ignorecase
-" 有大写时切换为大小写敏感
-set smartcase
-" 高亮搜索结果
-set hlsearch
-" 实时显示搜索结果
-set incsearch
+
+set ignorecase " 大小写不敏感
+set smartcase " 有大写时切换为大小写敏感
+set hlsearch " 高亮搜索结果
+set incsearch " 实时显示搜索结果
 "set lazyredraw
 "set magic
 
 " 菜单栏
-" 按tab时命令栏显示补全列表
-set wildmenu
-" 忽略编译文件
-set wildignore=*.o,*~,*.pyc
+set wildmenu   " 按tab时命令栏显示补全列表
+set wildmode=list:longest,full " 类似shell补全方式
+set wildignore=*.o,*~,*.pyc " 忽略编译文件
+
+" 显示特殊字符
+set list
+" FIXME: 不好看
+set listchars=tab:>-,trail:⋅,extends:>,nbsp:.
+
+" 分割窗口位置
+set splitright
+set splitbelow

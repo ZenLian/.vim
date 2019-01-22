@@ -3,10 +3,11 @@ filetype plugin indent on " 开启文件类型检测
 syntax enable
 syntax on
 
-" 文件在vim外更改时,自动读入文件变化
-set autoread
-" 自动切换工作目录
-set autochdir
+set autoread  " 自动读入文件变化
+set autochdir " 自动切换工作目录
+
+set mouse=a   " 自动检测鼠标
+set mousehide " 隐藏鼠标
 
 " 关闭备份
 set nobackup
@@ -21,43 +22,39 @@ if has('persistent_undo')
     set undoreload=10000        " Maximum number lines to save for undo on a buffer reload
 endif
 
+set encoding=utf8
+
+" +寄存器用于跨vim复制粘贴
+" FIXME: 终端下无效
+"set clipboard=unnamed,unnamedplus
+
+" vim输出信息缩写
+"set shortmess+=filmnrxtToO
+
+" Specify the behavior when switching between buffers
+"set switchbuf=useopen,usetab,newtab
+set hidden " A buffer becomes hidden when it is abandoned
+set history=1000
+set spell
+set iskeyword-=.
+set iskeyword-=#
+set iskeyword-=-
+
 """""""""""""""""""""""""""""""""""""""""""""""""
 " => 文本和缩进
 """""""""""""""""""""""""""""""""""""""""""""""""
-" 退格键
-set backspace=eol,start,indent
-" 方向键跨行
-"set whichwrap+=h,l,<,>
 
-" Use spaces instead of tabs
-set expandtab
-
-" Be smart when using tabs
-set smarttab
-
-" 1 tab == 4 spaces
-set shiftwidth=4
+set backspace=eol,start,indent " 退格键
+"set whichwrap+=h,l,<,> " 方向键跨行
+set expandtab " Use spaces instead of tabs
+set smarttab " Be smart when using tabs
+set autoindent  "Auto indent
+set smartindent "Smart indent
+set shiftwidth=4 " 1 tab == 4 spaces
 set tabstop=4
-
-" Linebreak on 120 characters
-set lbr
+set lbr      " Linebreak on 120 characters
 set tw=120
-
-set ai "Auto indent
-set si "Smart indent
-set wrap "Wrap lines
-
-
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""
-" => misc
-"""""""""""""""""""""""""""""""""""""""""""""""""
-" Specify the behavior when switching between buffers
-"set switchbuf=useopen,usetab,newtab
-
-" A buffer becomes hidden when it is abandoned
-set hidden
+set nowrap  "Do not Wrap long lines
 
 """""""""""""""""""""""""""""""""""""""""""""""""
 " => 自动执行命令
@@ -69,4 +66,12 @@ autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "norm
 autocmd BufEnter * if 0 == len(filter(range(1, winnr('$')), 'empty(getbufvar(winbufnr(v:val), "&bt"))')) | qa! | endif
 
 " 保存时自动删除行末空格
-autocmd BufWritePre * silent! %s/\s\+$//e
+function! StripTrailingSpace()
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    let @/=_s
+    call cursor(l, c)
+endfunction
+autocmd BufWritePre * call StripTrailingSpace()

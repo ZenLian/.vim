@@ -1,10 +1,26 @@
 " vim: set foldmethod=marker foldmarker={,} foldlevel=0 :
 let mapleader=g:my_leader
+
+" 背景色反转
+function! ToggltBG()
+    let s:tbg = &background
+    if  s:tbg == "dark"
+        set Backspace=light
+    else
+        set background=dark
+    endif
+endfunction
+noremap <leader>bg :call ToggleBG()<CR>
+
 " 重载vimrc配置
 map <leader>sv :source ~/.vimrc<cr>
+" TODO: 编辑vimrc配置
+"map <leader>ev :call EditVimrc()<CR>
 
 " 快速保存
 nmap <leader>w :w!<cr>
+" 以root权限保存
+command! W w !sudo tee % >/dev/null
 
 " ,<space>关闭高亮
 map <silent><leader><space> :noh<cr>
@@ -14,6 +30,13 @@ nnoremap Y y$
 " 屏幕左右移动
 nnoremap zh zH
 nnoremap zl zL
+
+" Visual模式缩进不退出
+vnoremap < <gv
+vnoremap > >gv
+
+" Visual模式能使用repeat
+vnoremap . :normal .<CR>
 
 " 使用ALT+[jk]上下移动当前行
 nmap <M-j> mz:m+<cr>`z
@@ -26,6 +49,10 @@ map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
+
+" 进入当前文件目录
+"cmap cwd lcd %:p:h
+"cmap cd. lcd %:p:h
 
 " 操作tab页快捷键
 map <leader>tn :tabnew<cr>

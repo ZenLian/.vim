@@ -16,31 +16,21 @@
 
 ### 下载
 
-下载配置文件至`~/.vim/`中
+下载配置文件
 
 ``` bash
-$ git clone https://github.com/ZenLian/.vim.git ~/.vim
+$ git clone --recursive https://github.com/ZenLian/my-vim.git
 ```
 
 ### 生成vimrc文件
 
-通过shell脚本`install.sh`生成vimrc文件. windows下运行`install_win.sh`.
+通过shell脚本`install.sh`生成vimrc文件.
 
 ### 安装插件
 
-有两种安装方法:
+通过`git clone`的`--recursive`参数已经将插件下载到`bundle`文件夹中了
 
-#### 1. vundle通过`git submodule`安装，其他插件通过vundle安装
-
-- 通过`git submodule`安装vundle
-
-``` bash
-$ cd ~/.vim
-$ git submodule init
-$ git submodule update bundle/Vundle.vim
-```
-
-- 然后进入vim，通过vundle安装其他插件，同时生成相应Helptags。
+然后进入vim，通过vundle安装其他插件，同时生成相应Helptags。
 
 ```
 :VundleInstall
