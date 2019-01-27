@@ -35,7 +35,7 @@ set encoding=utf8
 "set switchbuf=useopen,usetab,newtab
 set hidden " A buffer becomes hidden when it is abandoned
 set history=1000
-set spell
+set nospell
 set iskeyword-=.
 set iskeyword-=#
 set iskeyword-=-

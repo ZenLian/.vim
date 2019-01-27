@@ -25,13 +25,14 @@
 
 "-- 全局配置 --"
 " global options {
-    let g:my_leader=','
-    let g:my_localleader='\'
-    let g:my_bundle_groups=['general', 'ui']
+    "let g:my_leader=','
+    "let g:my_localleader='\'
+    "let g:my_bundle_groups=['general', 'autocomplete', 'ui']
+    let g:my_bundle_groups=['general', 'autocomplete']
 " }
 
 "-- 加载配置文件 --"
-" source configuration {
+" source configurations {
     source ~/.vim/vimrcs/1.plugins_vundle.vim
     source ~/.vim/vimrcs/2.general.vim
     source ~/.vim/vimrcs/3.ui.vim

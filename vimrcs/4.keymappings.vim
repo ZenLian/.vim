@@ -1,11 +1,15 @@
 " vim: set foldmethod=marker foldmarker={,} foldlevel=0 :
-let mapleader=g:my_leader
+if exists('g:my_leader')
+    let mapleader=g:my_leader
+else
+    let mapleader="\<Space>"
+endif
 
 " 背景色反转
-function! ToggltBG()
+function! ToggleBG()
     let s:tbg = &background
     if  s:tbg == "dark"
-        set Backspace=light
+        set background=light
     else
         set background=dark
     endif
@@ -22,8 +26,8 @@ nmap <leader>w :w!<cr>
 " 以root权限保存
 command! W w !sudo tee % >/dev/null
 
-" ,<space>关闭高亮
-map <silent><leader><space> :noh<cr>
+" 关闭高亮
+map <silent><leader><enter> :noh<cr>
 
 " Y从当前位置复制到行尾, 与D, C一致
 nnoremap Y y$
@@ -61,12 +65,14 @@ map <leader>tc :tabclose<cr>
 map <leader>tm :tabmove
 nnoremap [t :tabprevious<cr>
 nnoremap ]t :tabnext<cr>
-" Let 'tl' toggle between this and the last accessed tab
-"let g:lasttab = 1
-"nmap <Leader>tl :exe "tabn ".g:lasttab<CR>
-"au TabLeave * let g:lasttab = tabpagenr()
+" 返回上一个tab
+let g:lasttab = 1
+nmap <Leader>tl :exe "tabn ".g:lasttab<CR>
+au TabLeave * let g:lasttab = tabpagenr()
 
 " 操作buffer快捷键
+" 列出所有buffer
+nnoremap <leader>bb :buffers<cr>
 " 关闭当前buffer
 map <leader>bd :bd<cr>
 " 下一个/上一个buffer
@@ -128,7 +134,6 @@ cnoremap <C-D> <Del>
 """""""""""""""""""""""""""""""""""""""""""""""""
 " ,ss开关拼写检查
 map <leader>ss :setlocal spell!<cr>
-
 " 下/上一处拼写错误
 "map <leader>sn ]s
 "map <leader>sp [s

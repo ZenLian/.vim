@@ -5,12 +5,8 @@
 ## 项目文件
 
 - **vimrcs/**:vim配置文件
-    - **basic.vim**:基本配置
-    - **filetypes.vim**:根据文件类型的自动配置(TODO)
-    - **plugins.vim**:插件配置
 - **bundle/**:vim插件目录
 - **install.sh**:生成用户vimrc文件的shell脚本
-- **install_win.sh**:windows下安装脚本
 
 ## 安装方法
 
@@ -36,28 +32,9 @@ $ git clone --recursive https://github.com/ZenLian/my-vim.git
 :VundleInstall
 ```
 
-#### 2. 所有插件都通过`git submodule`安装
-
-``` bash
-$ cd ~/.vim
-$ git submodule init
-$ git submodule update
-```
-
-## 插件
-
-- [vim-airline](https://github.com/vim-airline/vim-airline): 强大的vim状态栏插件
-- [auto-pairs](https://github.com/jiangmiao/auto-pairs): 括号智能匹配
-- [NERDtree](https://github.com/scrooloose/nerdtree): 文件资源浏览插件
-- [taglist](https://github.com/vim-scripts/taglist.vim): 代码结构浏览插件
-- [cscope](https://github.com/brookhong/cscope.vim.git): tag跳转
-- [ctrlp.vim](https://github.com/ctrlpvim/ctrlp.vim.git): 搜索一切(Fuzzy file, buffer, mru and tag... finder)
-- [vim-gitgutter](https://github.com/airblade/vim-gitgutter.git): git插件
-- [OmniCppComplete](https://github.com/vim-scripts/OmniCppComplete.git): C/C++全能补全
-
 ## 快捷键
 
-`<leader>`映射为`,`
+`<leader>`映射为空格键
 
 ### 普通快捷键
 
@@ -93,4 +70,22 @@ $ git submodule update
 [OmniCppComplete](https://github.com/vim-scripts/OmniCppComplete.git):
 
 - `<Ctrl-X><Ctrl-O>`: 展开自动补全窗口
+
+[Tabular](https://github.com/godlygeek/tabular):
+
+- `:Tab /{pattern}`: 按{pattern}对齐文本
+
+[vim-surround](https://github.com/tpope/vim-surround):
+
+具体键位见原插件网页
+- `cs"'`: 将两侧最近的`"`替换为`'`
+- `ds"`: 删除两侧的`"`
+
+[ctrlp](https://github.com/ctrlpvim/ctrlp.vim):
+[ctrlp-funky](https://github.com/tacahiroy/ctrlp-funky):
+
+模糊搜索及其插件
+- `<C-P>`: 模糊搜索
+- `<leader>fu`: 模糊搜索函数
+- `<leader>fU`: 模糊搜索光标下函数
 

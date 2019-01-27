@@ -18,16 +18,30 @@
 " Load Plugins {
     " General {
         if count(g:my_bundle_groups, 'general')
+            " 编辑
             Plugin 'jiangmiao/auto-pairs'
+            Plugin 'tpope/vim-surround'
+            Plugin 'tpope/vim-repeat'
+            Plugin 'godlygeek/tabular'   " 对齐文本
+            Plugin 'luochen1990/rainbow' " 以颜色区分括号层次
+            " 搜索, 浏览
             Plugin 'vim-scripts/cscope.vim'
-            Plugin 'ctrlpvim/ctrlp.vim'
             Plugin 'scrooloose/nerdtree'
-            Plugin 'vim-scripts/OmniCppComplete'
-            Plugin 'vim-scripts/taglist.vim'
+            Plugin 'ctrlpvim/ctrlp.vim'     " 模糊搜索
+            Plugin 'tacahiroy/ctrlp-funky'  " ctrlp的函数搜索插件
+            if executable('ctags')
+                Plugin 'vim-scripts/taglist.vim'
+            endif
+            " git
             Plugin 'airblade/vim-gitgutter'
         endif
     " }
-
+    " AutoComplete {
+        if count(g:my_bundle_groups, 'autocomplete')
+            Plugin 'vim-scripts/OmniCppComplete'
+            Plugin 'Shougo/neocomplete.vim'
+        endif
+    " }
     " UI {
         if count(g:my_bundle_groups, 'ui')
             Plugin 'altercation/vim-colors-solarized'

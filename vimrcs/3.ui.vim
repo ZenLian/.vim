@@ -9,7 +9,9 @@ if count(g:my_bundle_groups, 'ui') && filereadable(expand("~/.vim/bundle/vim-col
     let g:solarized_visibility="normal"
     color solarized
 else
-    color default
+    "color default
+    color desert
+    set t_Co=256
     " 自动补全窗口配色
     highlight Pmenu      ctermbg=darkgrey  ctermfg=white guibg=darkgrey  guifg=white
     highlight PmenuSel   ctermbg=lightgrey ctermfg=black guibg=lightgrey guifg=black
@@ -17,6 +19,8 @@ else
     highlight PmenuThumb ctermbg=lightgrey guibg=lightgrey
     " 当前行配色
     highlight Cursorline cterm=NONE ctermbg=8 guibg=Grey40
+    " 搜索词配色
+    highlight Search     term=reverse ctermbg=11 ctermfg=0 guibg=yellow
 endif
 
 " 语言和文件系统
