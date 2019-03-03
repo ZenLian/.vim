@@ -23,6 +23,8 @@ if count(g:my_bundle_groups, 'general')
             nnoremap <leader>ff :call cscope#find('f', expand('<cword>'))<CR>
         " i: Find files #including this file
             nnoremap <leader>fi :call cscope#find('i', expand('<cword>'))<CR>
+        " 关闭更新CScope的提示信息
+            let g:cscope_silent = 1
     " }
 
     " NerdTree {
