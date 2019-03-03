@@ -6,7 +6,7 @@ syntax on
 set autoread  " 自动读入文件变化
 set autochdir " 自动切换工作目录
 
-set mouse=a   " 自动检测鼠标
+"set mouse=a   " 自动检测鼠标
 set mousehide " 隐藏鼠标
 
 " 关闭备份

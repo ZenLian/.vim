@@ -1,63 +1,67 @@
 " vim: set foldmethod=marker foldmarker={,} foldlevel=0 :
+
 " General {
-    if count(g:my_bundle_groups, 'general')
+if count(g:my_bundle_groups, 'general')
 
-        " CScope {
-            nnoremap <leader>fa :call cscope#findInteractive(expand('<cword>'))<CR>
-            nnoremap <leader>l  :call ToggleLocationList()<CR>
-            nnoremap g[ :call cscope#find('c', expand('<cword>'))<CR>
-            " s: Find this C symbol
-                nnoremap <leader>fs :call cscope#find('s', expand('<cword>'))<CR>
-            " g: Find this definition
-                nnoremap <leader>fg :call cscope#find('g', expand('<cword>'))<CR>
-            " d: Find functions called by this function
-                nnoremap <leader>fd :call cscope#find('d', expand('<cword>'))<CR>
-            " c: Find functions calling this function
-                nnoremap <leader>fc :call cscope#find('c', expand('<cword>'))<CR>
-            " t: Find this text string
-                nnoremap <leader>ft :call cscope#find('t', expand('<cword>'))<CR>
-            " e: Find this egrep pattern
-                nnoremap <leader>fe :call cscope#find('e', expand('<cword>'))<CR>
-            " f: Find this file
-                nnoremap <leader>ff :call cscope#find('f', expand('<cword>'))<CR>
-            " i: Find files #including this file
-                nnoremap <leader>fi :call cscope#find('i', expand('<cword>'))<CR>
-        " }
+    " CScope {
+        nnoremap <leader>fa :call cscope#findInteractive(expand('<cword>'))<CR>
+        nnoremap <leader>l  :call ToggleLocationList()<CR>
+        nnoremap g[ :call cscope#find('c', expand('<cword>'))<CR>
+        " s: Find this C symbol
+            nnoremap <leader>fs :call cscope#find('s', expand('<cword>'))<CR>
+        " g: Find this definition
+            nnoremap <leader>fg :call cscope#find('g', expand('<cword>'))<CR>
+        " d: Find functions called by this function
+            nnoremap <leader>fd :call cscope#find('d', expand('<cword>'))<CR>
+        " c: Find functions calling this function
+            nnoremap <leader>fc :call cscope#find('c', expand('<cword>'))<CR>
+        " t: Find this text string
+            nnoremap <leader>ft :call cscope#find('t', expand('<cword>'))<CR>
+        " e: Find this egrep pattern
+            nnoremap <leader>fe :call cscope#find('e', expand('<cword>'))<CR>
+        " f: Find this file
+            nnoremap <leader>ff :call cscope#find('f', expand('<cword>'))<CR>
+        " i: Find files #including this file
+            nnoremap <leader>fi :call cscope#find('i', expand('<cword>'))<CR>
+    " }
 
-        " NerdTree {
-            let g:NERDTreeWinPos="left"
-            let g:NERDTreeShowHidden=1
-            let g:NERDTreeQuitOnOpen=1
-            let g:NERDTreeKeepTreeInNewTab=1
-            let g:NERDTreeIgnore=['\.o$','\~$','\.tags$']
-            "let g:NERDTreeWinSize=30
-            map <F2> :NERDTreeToggle<cr>
-            map <leader>nb :NERDTreeFromBookMark<cr>
-            map <leader>nf :NERDTreeFind<cr>
-        " }
+    " NerdTree {
+        let g:NERDTreeWinPos="left"
+        let g:NERDTreeShowHidden=1
+        let g:NERDTreeQuitOnOpen=1
+        let g:NERDTreeKeepTreeInNewTab=1
+        let g:NERDTreeIgnore=['\.o$','\~$','\.tags$']
+        "let g:NERDTreeWinSize=30
+        map <F2> :NERDTreeToggle<cr>
+        map <leader>nb :NERDTreeFromBookMark<cr>
+        map <leader>nf :NERDTreeFind<cr>
+    " }
 
-        " CtrlP {
-            if isdirectory(expand("~/.vim/bundle/ctrlp-funky/"))
-                let g:ctrlp_extensions=['funky']
-                let g:ctrlp_funky_syntax_hilight=1
-                nnoremap <leader>fu :CtrlPFunky<cr>
-                nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<cr>
-            endif
-        " }
+    " CtrlP {
+        if isdirectory(expand("~/.vim/bundle/ctrlp-funky/"))
+            let g:ctrlp_extensions=['funky']
+            let g:ctrlp_funky_syntax_hilight=1
+            nnoremap <leader>fu :CtrlPFunky<cr>
+            nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<cr>
+        endif
+    " }
 
-        " TagList {
-            let Tlist_Show_One_File=1
-            let Tlist_Exit_OnlyWindow=1
-            let Tlist_Use_Right_Window=1
-            let Tlist_GainFocus_On_ToggleOpen=1
-            map <F3> :TlistToggle<cr>
-        " }
+    " TagList {
+        let Tlist_Show_One_File=1
+        let Tlist_Exit_OnlyWindow=1
+        let Tlist_Use_Right_Window=1
+        let Tlist_GainFocus_On_ToggleOpen=1
+        map <F3> :TlistToggle<cr>
+    " }
 
-        " GitGutter {
-            set updatetime=100
-        " }
+    " GitGutter {
+        set updatetime=100
+    " }
 
-    endif
+    " Rainbow {
+        let g:rainbow_active=1
+    " }
+endif
 " }
 
 " AutoComplete {

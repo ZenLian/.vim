@@ -27,8 +27,7 @@
 " global options {
     "let g:my_leader=','
     "let g:my_localleader='\'
-    "let g:my_bundle_groups=['general', 'autocomplete', 'ui']
-    let g:my_bundle_groups=['general', 'autocomplete']
+    let g:my_bundle_groups=['general', 'autocomplete', 'ui']
 " }
 
 "-- 加载配置文件 --"

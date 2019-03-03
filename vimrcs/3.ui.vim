@@ -57,29 +57,28 @@ set so=5          " 滚动时光标离上下边界的距离
 set cursorline    " 高亮当前行
 
 " 状态栏
-    if has('statusline')
-        set laststatus=2
+if has('statusline')
+    set laststatus=2
 
-        " Broken down into easily includeable segments
-        set statusline=%<%f\                     " Filename
-        set statusline+=%w%h%m%r                 " Options
-        "if !exists('g:override_spf13_bundles')
-        "    set statusline+=%{fugitive#statusline()} " Git Hotness
-        "endif
-        set statusline+=\ [%{&ff}/%Y]            " Filetype
-        set statusline+=\ [%{getcwd()}]          " Current dir
-        set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
-    endif
+    " Broken down into easily includeable segments
+    set statusline=%<%f\                     " Filename
+    set statusline+=%w%h%m%r                 " Options
+    "if !exists('g:override_spf13_bundles')
+    "    set statusline+=%{fugitive#statusline()} " Git Hotness
+    "endif
+    set statusline+=\ [%{&ff}/%Y]            " Filetype
+    set statusline+=\ [%{getcwd()}]          " Current dir
+    set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
+endif
 
-    if has('cmdline_info')
-        set ruler                   " Show the ruler
-        set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " A ruler on steroids
-        set showcmd                 " Show partial commands in status line and
-                                    " Selected characters/lines in visual mode
-    endif
+if has('cmdline_info')
+    set ruler                   " Show the ruler
+    set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " A ruler on steroids
+    set showcmd                 " Show partial commands in status line and
+                                " Selected characters/lines in visual mode
+endif
 
 " 搜索栏
-
 set ignorecase " 大小写不敏感
 set smartcase " 有大写时切换为大小写敏感
 set hlsearch " 高亮搜索结果
@@ -94,8 +93,7 @@ set wildignore=*.o,*~,*.pyc " 忽略编译文件
 
 " 显示特殊字符
 set list
-" FIXME: 不好看
-set listchars=tab:>-,trail:⋅,extends:>,nbsp:.
+set listchars=tab:›\ ,trail:•,extends:›,nbsp:.
 
 " 分割窗口位置
 set splitright
