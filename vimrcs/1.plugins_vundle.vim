@@ -40,6 +40,8 @@
         if count(g:my_bundle_groups, 'autocomplete')
             Plugin 'vim-scripts/OmniCppComplete'
             Plugin 'Shougo/neocomplete.vim'
+            Plugin 'Shougo/neosnippet'
+            Plugin 'Shougo/neosnippet-snippets'
         endif
     " }
     " UI {

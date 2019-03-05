@@ -7,6 +7,7 @@ if count(g:my_bundle_groups, 'ui') && filereadable(expand("~/.vim/bundle/vim-col
     let g:solarized_termtrans=1
     let g:solarized_contrast="normal"
     let g:solarized_visibility="normal"
+    set t_Co=256
     color solarized
 else
     "color default

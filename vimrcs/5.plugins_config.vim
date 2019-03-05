@@ -87,13 +87,15 @@ endif
             let g:neocomplete#enable_smart_case = 1
             let g:neocomplete#enable_auto_delimiter = 1
             let g:neocomplete#max_list = 15
+            " AutoComplPop like behavior.
+            "let g:neocomplete#enable_auto_select = 1
 
             " Define dictionary.
             let g:neocomplete#sources#dictionary#dictionaries = {
                 \ 'default' : '',
                 \ 'vimshell' : $HOME.'/.vimshell_hist',
                 \ 'scheme' : $HOME.'/.gosh_completions'
-                    \ }
+            \ }
 
             " Define keyword.
             if !exists('g:neocomplete#keyword_patterns')
@@ -102,33 +104,62 @@ endif
             let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
             " Plugin key-mappings {
+                " <C-k> 补全代码片段
+                imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+                smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+
                 inoremap <expr><C-g>     neocomplete#undo_completion()
                 inoremap <expr><C-l>     neocomplete#complete_common_string()
 
-                " Recommended key-mappings.
-                " <CR>: close popup and save indent.
-                inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-                function! s:my_cr_function()
-                  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
-                  " For no inserting <CR> key.
-                  "return pumvisible() ? "\<C-y>" : "\<CR>"
+                " <CR>: close popup
+                " <s-CR>: close popup and save indent.
+                inoremap <expr><s-CR> pumvisible() ? neocomplete#smart_close_popup()."\<CR>" : "\<CR>"
+                function! CleverCr()
+                    if pumvisible()
+                        if neosnippet#expandable()
+                            let exp = "\<Plug>(neosnippet_expand)"
+                            return (exp . neocomplete#smart_close_popup())
+                        else
+                            return neocomplete#smart_close_popup()
+                        endif
+                    else
+                        return "\<CR>"
+                    endif
                 endfunction
-                " <TAB>: completion.
-                inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-                " <C-h>, <BS>: close popup and delete backword char.
+                " <CR> close popup and save indent or expand snippet
+                imap <expr> <CR> CleverCr()
+
+                " 退格后关闭补全栏
                 inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
                 inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+
+                " 空格(<C-y>)关闭补全窗口
                 " Close popup by <Space>.
                 "inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
 
-                " AutoComplPop like behavior.
-                "let g:neocomplete#enable_auto_select = 1
+                " <TAB>: completion.
+                inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+                inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<TAB>"
+                function! CleverTab()
+                    if pumvisible()
+                        return "\<C-n>"
+                    endif
+                    let substr = strpart(getline('.'), 0, col('.') - 1)
+                    let substr = matchstr(substr, '[^ \t]*$')
+                    if strlen(substr) == 0
+                        " nothing to match on empty string
+                        return "\<Tab>"
+                    else
+                        " existing text matching
+                        if neosnippet#expandable_or_jumpable()
+                            return "\<Plug>(neosnippet_expand_or_jump)"
+                        else
+                            return neocomplete#start_manual_complete()
+                        endif
+                    endif
+                endfunction
+                imap <expr> <Tab> CleverTab()
 
-                " Shell like behavior(not recommended).
-                "set completeopt+=longest
-                "let g:neocomplete#enable_auto_select = 1
-                "let g:neocomplete#disable_auto_complete = 1
-                "inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
             " }
 
             " Enable omni completion.

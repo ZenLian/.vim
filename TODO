@@ -2,7 +2,7 @@
 -[ ] 同时具备basic, advanced版本
 -[x] vim-surround: surround
 -[x] neocomplete: 替代omnicppcomplete
--[ ] neosnippet: 补全代码段
+-[x] neosnippet: 补全代码段
 -[ ] nerdcommenter|vim-commentary: 注释插件
 -[x] tabular: 对齐文本
 -[x] luochen1990/rainbow: 不同层次括号不同颜色
