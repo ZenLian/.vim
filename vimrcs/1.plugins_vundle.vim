@@ -22,6 +22,7 @@
             Plugin 'jiangmiao/auto-pairs'
             Plugin 'tpope/vim-surround'
             Plugin 'tpope/vim-repeat'
+            Plugin 'tpope/vim-commentary'
             Plugin 'godlygeek/tabular'   " 对齐文本
             Plugin 'luochen1990/rainbow' " 以颜色区分括号层次
             " 搜索, 浏览
@@ -29,12 +30,12 @@
             Plugin 'scrooloose/nerdtree'
             Plugin 'ctrlpvim/ctrlp.vim'     " 模糊搜索
             Plugin 'tacahiroy/ctrlp-funky'  " ctrlp的函数搜索插件
+            Plugin 'easymotion/vim-easymotion'
             if executable('ctags')
                 Plugin 'vim-scripts/taglist.vim'
             endif
             " git
             Plugin 'airblade/vim-gitgutter'
-            Plugin 'easymotion/vim-easymotion'
         endif
     " }
     " AutoComplete {

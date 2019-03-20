@@ -63,6 +63,11 @@ if count(g:my_bundle_groups, 'general')
     " Rainbow {
         let g:rainbow_active=1
     " }
+
+    " vim-commentary {
+        " 修改注释风格
+        autocmd FileType c setlocal commentstring=//\ %s
+    " }
 endif
 " }
 

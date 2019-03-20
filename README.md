@@ -85,6 +85,15 @@ tag跳转
 - `ds"`: 删除两侧的`"`
 - 在Visual模式下`S"`: 选中文本的两侧加上`"`
 
+#### [vim-commentary](https://github.com/tpope/vim-commentary)
+
+快速注释与解注释
+
+- `gcc`: 注释/解注释单行
+- `gcap`: 注释一段
+- `gcu`/`gcgc`: 解注释相邻几行
+
+
 #### [ctrlp](https://github.com/ctrlpvim/ctrlp.vim):
 #### [ctrlp-funky](https://github.com/tacahiroy/ctrlp-funky):
 
@@ -106,3 +115,24 @@ tag跳转
 - 上下选择: `<C-N>/<C-P>`或`<Tab>/<S-TAB>`
 - `<C-K>`: 自动补全代码片段，再按`<C-K>`或`<TAB>`跳至该片段的下一处
 - `<C-Y>`: 关闭补全窗口
+
+## TODO LIST
+
+### TODO
+
+-[ ] 同时具备basic, advanced版本
+-[ ] tagbar: 替代taglist
+-[ ] syntastic: 语法检查
+-[ ] undotree: undo历史记录
+-[ ] 异步插件管理器vim-plugin替代Vundle
+
+### DONE
+
+-[x] 按spf13-vim的形式改写vimrc
+-[x] vim-surround: surround
+-[x] neocomplete: 替代omnicppcomplete
+-[x] neosnippet: 补全代码段
+-[x] tabular: 对齐文本
+-[x] luochen1990/rainbow: 不同层次括号不同颜色
+-[x] easy-motion: 快速移动插件
+-[x] nerdcommenter|vim-commentary: 注释插件
