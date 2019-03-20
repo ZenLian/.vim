@@ -34,6 +34,7 @@
             endif
             " git
             Plugin 'airblade/vim-gitgutter'
+            Plugin 'easymotion/vim-easymotion'
         endif
     " }
     " AutoComplete {

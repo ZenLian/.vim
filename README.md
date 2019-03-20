@@ -93,6 +93,12 @@ tag跳转
 - `<leader>fu`: 模糊搜索函数
 - `<leader>fU`: 模糊搜索光标下函数
 
+#### [vim-easymotion](https://github.com/easymotion/vim-easymotion.git)
+
+快速移动，`<leader><leader>`触发
+- `j/k/w/b/f/F/t/T`: 与原vim移动指令类似
+- `s{char}`: 搜索移动
+
 #### [neocomplete/neosnippet]
 
 自动补全插件, 输入时自动弹出补全窗口
