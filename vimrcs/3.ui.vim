@@ -1,5 +1,6 @@
 " vim: set foldmethod=marker foldmarker={,} foldlevel=0 :
 set background=dark  " 深色背景
+set t_Co=256 "先设置t_Co，再设置highlight才有效
 
 " 主题
 if count(g:my_bundle_groups, 'ui') && filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"))
@@ -9,10 +10,13 @@ if count(g:my_bundle_groups, 'ui') && filereadable(expand("~/.vim/bundle/vim-col
     let g:solarized_visibility="normal"
     set t_Co=256
     color solarized
+    highlight Normal     ctermfg=254
+    highlight LineNr     ctermbg=0
+    "highlight clear Signcolumn " 标记列与背景一致
+    "highlight clear LineNr     " 行号与背景一致
 else
     "color default
     color desert
-    set t_Co=256
     " 自动补全窗口配色
     highlight Pmenu      ctermbg=darkgrey  ctermfg=white guibg=darkgrey  guifg=white
     highlight PmenuSel   ctermbg=lightgrey ctermfg=black guibg=lightgrey guifg=black
@@ -23,6 +27,7 @@ else
     " 搜索词配色
     highlight Search     term=reverse ctermbg=11 ctermfg=0 guibg=yellow
 endif
+
 
 " 语言和文件系统
 let $LANG='en_US'
@@ -49,8 +54,6 @@ set showtabline=2
 
 set number        " 显示行号
 "set foldcolumn=1 " 左侧留一列空白
-highlight clear Signcolumn " 标记列与背景一致
-highlight clear LineNr     " 行号与背景一致
 
 
 set so=5          " 滚动时光标离上下边界的距离
