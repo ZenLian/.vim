@@ -3,12 +3,7 @@ set background=dark  " 深色背景
 set t_Co=256 "先设置t_Co，再设置highlight才有效
 
 " 主题
-if count(g:my_bundle_groups, 'ui') && filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"))
-    let g:solarized_termcolors=256
-    let g:solarized_termtrans=1
-    let g:solarized_contrast="normal"
-    let g:solarized_visibility="normal"
-    set t_Co=256
+if count(g:bundle_groups, 'ui') && filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"))
     color solarized
     highlight Normal     ctermfg=254
     highlight LineNr     ctermbg=0

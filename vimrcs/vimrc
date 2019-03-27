@@ -2,6 +2,7 @@
 " Environment {
     " Basics {
         set nocompatible        " 不兼容模式
+        filetype off            " required
     " }
 
     "-- 跨平台支持 --"
@@ -27,14 +28,13 @@
 " global options {
     "let g:my_leader=','
     "let g:my_localleader='\'
-    let g:my_bundle_groups=['general', 'autocomplete', 'ui']
+    let g:bundle_groups=['general', 'autocomplete', 'ui']
 " }
 
 "-- 加载配置文件 --"
 " source configurations {
-    source ~/.vim/vimrcs/1.plugins_vundle.vim
+    source ~/.vim/vimrcs/1.plugins.vim
     source ~/.vim/vimrcs/2.general.vim
     source ~/.vim/vimrcs/3.ui.vim
     source ~/.vim/vimrcs/4.keymappings.vim
-    source ~/.vim/vimrcs/5.plugins_config.vim
 " }

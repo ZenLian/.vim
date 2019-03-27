@@ -1,7 +1,59 @@
 " vim: set foldmethod=marker foldmarker={,} foldlevel=0 :
+set nocompatible
+set background=dark     " Assume a dark background
+call plug#begin('~/.vim/bundle/')
+" Load Plugins {
+    " General {
+        if count(g:bundle_groups, 'general')
+            " 编辑
+            Plug 'jiangmiao/auto-pairs' " 自动配对括号
+            Plug 'tpope/vim-surround'
+            Plug 'tpope/vim-repeat'
+            Plug 'tpope/vim-commentary'
+            Plug 'godlygeek/tabular'   " 对齐文本
+            Plug 'luochen1990/rainbow' " 以颜色区分括号层次
+            " 语法检查
+            if v:version >= 800
+                Plug 'w0rp/ale'
+            else
+                Plug 'scrooloose/syntastic'
+            endif
+            " 搜索, 导航
+            if executable('ctags')
+                Plug 'majutsushi/tagbar'
+            endif
+            Plug 'vim-scripts/cscope.vim'
+            Plug 'scrooloose/nerdtree'
+            Plug 'ctrlpvim/ctrlp.vim'     " 模糊搜索
+            Plug 'tacahiroy/ctrlp-funky'  " ctrlp的函数搜索插件
+            " 最快的搜索插件, --bin 只在vim中使用, --all 在系统中使用
+            Plug 'junegunn/fzf', {'dir': '~/.vim/bundle/fzf', 'do': './install --bin'}
+            Plug 'junegunn/fzf.vim'
+            Plug 'easymotion/vim-easymotion'
+            " git
+            Plug 'airblade/vim-gitgutter'
+        endif
+    " }
+    " AutoComplete {
+        if count(g:bundle_groups, 'autocomplete')
+            Plug 'vim-scripts/OmniCppComplete'
+            Plug 'Shougo/neocomplete.vim'
+            Plug 'Shougo/neosnippet'
+            Plug 'Shougo/neosnippet-snippets'
+        endif
+    " }
+    " UI {
+        if count(g:bundle_groups, 'ui')
+            Plug 'altercation/vim-colors-solarized'
+            Plug 'vim-airline/vim-airline'
+            Plug 'vim-airline/vim-airline-themes'
+        endif
+    " }
+" }
+call plug#end()
 
 " General {
-if count(g:my_bundle_groups, 'general')
+if count(g:bundle_groups, 'general')
 
     " CScope {
         nnoremap <leader>fa :call cscope#findInteractive(expand('<cword>'))<CR>
@@ -48,12 +100,8 @@ if count(g:my_bundle_groups, 'general')
         endif
     " }
 
-    " TagList {
-        let Tlist_Show_One_File=1
-        let Tlist_Exit_OnlyWindow=1
-        let Tlist_Use_Right_Window=1
-        let Tlist_GainFocus_On_ToggleOpen=1
-        map <F3> :TlistToggle<cr>
+    " Tagbar {
+        map <F3> :TagbarToggle<cr>
     " }
 
     " GitGutter {
@@ -72,9 +120,10 @@ endif
 " }
 
 " AutoComplete {
-    if count(g:my_bundle_groups, 'autocomplete')
+    if count(g:bundle_groups, 'autocomplete')
         " OmniCppComplete {
-            set completeopt=menuone,menu
+            "set completeopt=menuone,menu
+            set completeopt=longest,menu
             let OmniCpp_MayCompleteDot=1   ".后自动补全
             let OmniCpp_MayCompleteArrow=1 "->后自动补全
             let OmniCpp_MayCompleteScope=1 "::后自动补全
@@ -188,7 +237,7 @@ endif
 " }
 
 " UI {
-    if count(g:my_bundle_groups, 'ui')
+    if count(g:bundle_groups, 'ui')
         " vim-airline {
             "let g:airline_section_y = '%{strftime("%H:%M")}'
             let g:airline#extensions#tabline#enabled = 1
@@ -199,7 +248,10 @@ endif
             "let g:airline_solarized_bg = 'dark'
         " }
         " solarized {
-        " 在ui.vim中配置
+            let g:solarized_termcolors=256
+            let g:solarized_termtrans=1
+            let g:solarized_contrast="normal"
+            let g:solarized_visibility="normal"
         " }
     endif
 " }

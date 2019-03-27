@@ -23,6 +23,8 @@ map <leader>sv :source ~/.vimrc<cr>
 
 " 快速保存
 nmap <leader>w :w!<cr>
+" 快速退出
+nmap <leader>q :q<cr>
 " 以root权限保存
 command! W w !sudo tee % >/dev/null
 
@@ -43,6 +45,7 @@ vnoremap > >gv
 vnoremap . :normal .<CR>
 
 " 使用ALT+[jk]上下移动当前行
+" FIXME: 终端下无效
 nmap <M-j> mz:m+<cr>`z
 nmap <M-k> mz:m-2<cr>`z
 vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
