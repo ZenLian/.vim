@@ -1,11 +1,11 @@
 # vim配置
 
-个人vim配置方案，vim插件采用vundle管理，逐步完善中。
+个人vim配置方案，采用vim-plug管理插件
 
 ## 项目文件
 
 - **vimrcs/**: vim配置文件
-- **bundle/**: vim插件目录
+- **autoload/plug.vim**: vim-plug插件
 - **tmp/**: 临时目录，存放vimundo文件等
 - **install.sh**: 生成用户vimrc文件的shell脚本
 
@@ -16,7 +16,7 @@
 下载配置文件
 
 ``` bash
-$ git clone --recursive https://github.com/ZenLian/my-vim.git
+$ git clone https://github.com/ZenLian/my-vim.git
 ```
 
 ### 生成vimrc文件
@@ -25,12 +25,8 @@ $ git clone --recursive https://github.com/ZenLian/my-vim.git
 
 ### 安装插件
 
-通过`git clone`的`--recursive`参数已经将插件下载到`bundle`文件夹中了
-
-然后进入vim，通过vundle安装其他插件，同时生成相应Helptags。
-
-```
-:VundleInstall
+``` shell
+$ vim +PlugInstall!
 ```
 
 ## 快捷键
@@ -53,9 +49,9 @@ $ git clone --recursive https://github.com/ZenLian/my-vim.git
 
 - `F2`: 打开/关闭目录树
 
-#### [taglist](https://github.com/vim-scripts/taglist.vim):
+#### [tagbar](https://github.com/majutsushi/tagbar):
 
-- `F3`: 打开/关闭taglist
+- `F3`: 打开/关闭tagbar
 - `F12`: 在当前目录下生成ctags文件，后缀为.tags
 
 #### [cscope](https://github.com/brookhong/cscope.vim.git)
@@ -108,7 +104,7 @@ tag跳转
 - `j/k/w/b/f/F/t/T`: 与原vim移动指令类似
 - `s{char}`: 搜索移动
 
-#### [neocomplete/neosnippet]
+#### [neocomplete/neosnippet]()
 
 自动补全插件, 输入时自动弹出补全窗口
 
@@ -121,10 +117,7 @@ tag跳转
 ### TODO
 
 -[ ] 同时具备basic, advanced版本
--[ ] tagbar: 替代taglist
--[ ] syntastic: 语法检查
 -[ ] undotree: undo历史记录
--[ ] 异步插件管理器vim-plugin替代Vundle
 
 ### DONE
 
@@ -136,3 +129,6 @@ tag跳转
 -[x] luochen1990/rainbow: 不同层次括号不同颜色
 -[x] easy-motion: 快速移动插件
 -[x] nerdcommenter|vim-commentary: 注释插件
+-[x] 异步插件管理器vim-plugin替代Vundle
+-[x] tagbar: 替代taglist
+-[x] ale: 语法检查
