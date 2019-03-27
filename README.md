@@ -116,19 +116,19 @@ tag跳转
 
 ### TODO
 
--[ ] 同时具备basic, advanced版本
--[ ] undotree: undo历史记录
+- [ ] 同时具备basic, advanced版本
+- [ ] undotree: undo历史记录
 
 ### DONE
 
--[x] 按spf13-vim的形式改写vimrc
--[x] vim-surround: surround
--[x] neocomplete: 替代omnicppcomplete
--[x] neosnippet: 补全代码段
--[x] tabular: 对齐文本
--[x] luochen1990/rainbow: 不同层次括号不同颜色
--[x] easy-motion: 快速移动插件
--[x] nerdcommenter|vim-commentary: 注释插件
--[x] 异步插件管理器vim-plugin替代Vundle
--[x] tagbar: 替代taglist
--[x] ale: 语法检查
+- [x] 按spf13-vim的形式改写vimrc
+- [x] vim-surround: surround
+- [x] neocomplete: 替代omnicppcomplete
+- [x] neosnippet: 补全代码段
+- [x] tabular: 对齐文本
+- [x] luochen1990/rainbow: 不同层次括号不同颜色
+- [x] easy-motion: 快速移动插件
+- [x] nerdcommenter|vim-commentary: 注释插件
+- [x] 异步插件管理器vim-plugin替代Vundle
+- [x] tagbar: 替代taglist
+- [x] ale: 语法检查
