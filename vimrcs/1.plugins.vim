@@ -102,6 +102,7 @@ if count(g:bundle_groups, 'general')
 
     " Tagbar {
         map <F3> :TagbarToggle<cr>
+        let g:tagbar_autofocus=1
     " }
 
     " GitGutter {
