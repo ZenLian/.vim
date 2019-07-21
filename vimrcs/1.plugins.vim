@@ -23,7 +23,7 @@ call plug#begin('~/.vim/bundle/')
                 Plug 'majutsushi/tagbar'
             endif
             Plug 'vim-scripts/cscope.vim'
-            Plug 'scrooloose/nerdtree'
+            Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
             Plug 'ctrlpvim/ctrlp.vim'     " 模糊搜索
             Plug 'tacahiroy/ctrlp-funky'  " ctrlp的函数搜索插件
             " 最快的搜索插件, --bin 只在vim中使用, --all 在系统中使用
