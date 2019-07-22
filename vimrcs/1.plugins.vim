@@ -12,6 +12,12 @@ call plug#begin('~/.vim/bundle/')
             Plug 'tpope/vim-commentary'
             Plug 'godlygeek/tabular'   " 对齐文本
             Plug 'luochen1990/rainbow' " 以颜色区分括号层次
+            " 文本对象
+            Plug 'kana/vim-textobj-user'
+            Plug 'kana/vim-textobj-indent'
+            Plug 'kana/vim-textobj-syntax'
+            Plug 'kana/vim-textobj-function', {'for': ['c', 'cpp', 'vim', 'java']}
+            Plug 'sgur/vim-textobj-parameter'
             " 语法检查
             if v:version >= 800
                 Plug 'w0rp/ale'
