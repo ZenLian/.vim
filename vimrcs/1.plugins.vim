@@ -45,11 +45,13 @@ call plug#begin('~/.vim/bundle/')
         endif
     " }
     " AutoComplete {
-        if count(g:bundle_groups, 'autocomplete')
+        if count(g:bundle_groups, 'neocomplete')
             Plug 'vim-scripts/OmniCppComplete'
             Plug 'Shougo/neocomplete.vim'
             Plug 'Shougo/neosnippet'
             Plug 'Shougo/neosnippet-snippets'
+        elseif count(g:bundle_groups, 'ycm')
+            Plug 'Valloric/YouCompleteMe'
         endif
     " }
     " UI {
@@ -145,7 +147,7 @@ endif
 " }
 
 " AutoComplete {
-    if count(g:bundle_groups, 'autocomplete')
+    if count(g:bundle_groups, 'neocomplete')
         " OmniCppComplete {
             "set completeopt=menuone,menu
             set completeopt=longest,menu
@@ -257,6 +259,8 @@ endif
             let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
             let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
         " }
+    elseif count(g:bundle_groups, 'ycm')
+
     endif
 
 " }
