@@ -31,6 +31,14 @@
     let g:bundle_groups=['general', 'autocomplete', 'ui']
 " }
 
+" mapleader {
+    if exists('g:my_leader')
+        let mapleader=g:my_leader
+    else
+        let mapleader="\<Space>"
+    endif
+" }
+
 "-- 加载配置文件 --"
 " source configurations {
     source ~/.vim/vimrcs/1.plugins.vim

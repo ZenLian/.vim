@@ -1,9 +1,4 @@
 " vim: set foldmethod=marker foldmarker={,} foldlevel=0 :
-if exists('g:my_leader')
-    let mapleader=g:my_leader
-else
-    let mapleader="\<Space>"
-endif
 
 " 背景色反转
 function! ToggleBG()

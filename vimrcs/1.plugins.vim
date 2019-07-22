@@ -18,11 +18,15 @@ call plug#begin('~/.vim/bundle/')
             else
                 Plug 'scrooloose/syntastic'
             endif
-            " 搜索, 导航
+            " 符号索引
             if executable('ctags')
+                if v:version >= 800
+                    Plug 'ludovicchabant/vim-gutentags'
+                endif
                 Plug 'majutsushi/tagbar'
             endif
             Plug 'vim-scripts/cscope.vim'
+            " 搜索导航
             Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
             Plug 'ctrlpvim/ctrlp.vim'     " 模糊搜索
             Plug 'tacahiroy/ctrlp-funky'  " ctrlp的函数搜索插件
@@ -98,6 +102,20 @@ if count(g:bundle_groups, 'general')
             nnoremap <leader>fu :CtrlPFunky<cr>
             nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<cr>
         endif
+    " }
+
+    " gutentags {
+        let g:gutentags_project_root = ['.root', '.git', '.svn', '.project']
+        let g:gutentags_ctags_tagfile = '.tags'
+        let g:gutentags_cache_dir = expand('~/.vim/tmp/tags')
+        if !isdirectory(g:gutentags_cache_dir)
+            silent! call mkdir(g:gutentags_cache_dir, 'p')
+        endif
+        let g:gutentags_ctags_extra_args = ['--fields=+niazS']
+        let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
+        let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
+        let g:gutentags_ctags_extra_args += ['--extra=+q']
+
     " }
 
     " Tagbar {
