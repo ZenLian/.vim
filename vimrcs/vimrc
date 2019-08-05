@@ -28,7 +28,8 @@
 " global options {
     "let g:my_leader=','
     "let g:my_localleader='\'
-    let g:bundle_groups=['general', 'neocomplete', 'ui']
+    let g:bundle_groups=['general', 'deoplete', 'ui']
+    "let g:bundle_groups=['general', 'neocomplete', 'ui']
 " }
 
 " mapleader {

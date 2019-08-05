@@ -37,7 +37,7 @@ call plug#begin('~/.vim/bundle/')
             Plug 'ctrlpvim/ctrlp.vim'     " 模糊搜索
             Plug 'tacahiroy/ctrlp-funky'  " ctrlp的函数搜索插件
             " 最快的搜索插件, --bin 只在vim中使用, --all 在系统中使用
-            Plug 'junegunn/fzf', {'dir': '~/.vim/bundle/fzf', 'do': './install --bin'}
+            Plug 'junegunn/fzf', {'dir': '~/.vim/bundle/fzf', 'do': './install --all'}
             Plug 'junegunn/fzf.vim'
             Plug 'easymotion/vim-easymotion'
             " git
@@ -50,8 +50,13 @@ call plug#begin('~/.vim/bundle/')
             Plug 'Shougo/neocomplete.vim'
             Plug 'Shougo/neosnippet'
             Plug 'Shougo/neosnippet-snippets'
-        elseif count(g:bundle_groups, 'ycm')
-            Plug 'Valloric/YouCompleteMe'
+        elseif count(g:bundle_groups, 'deoplete')
+            Plug 'Shougo/deoplete.nvim'
+            Plug 'Shougo/neosnippet'
+            Plug 'Shougo/neosnippet-snippets'
+            Plug 'Shougo/neopairs.vim'
+            Plug 'roxma/nvim-yarp'
+            Plug 'roxma/vim-hug-neovim-rpc'
         endif
     " }
     " UI {
@@ -259,8 +264,16 @@ endif
             let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
             let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
         " }
-    elseif count(g:bundle_groups, 'ycm')
-
+    elseif count(g:bundle_groups, 'deoplete')
+        let g:deoplete#enable_at_startup = 1
+        let g:neopairs#enable = 1
+        call deoplete#custom#source('_', 'converters', ['converter_auto_paren'])
+        imap <expr><TAB> pumvisible() ? "\<C-n>" : (neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>")
+        imap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
+        imap <expr><CR> pumvisible() ? deoplete#mappings#close_popup() : "\<CR>"
+        imap <C-k> <Plug>(neosnippet_expand_or_jump)
+        smap <C-k> <Plug>(neosnippet_expand_or_jump)
+        xmap <C-k> <Plug>(neosnippet_expand_target)
     endif
 
 " }
